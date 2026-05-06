@@ -1,13 +1,14 @@
 { config, ... }:
 let
   dotfiles = "${config.home.homeDirectory}/dotfiles/.config";
-  create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+  createSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
   configs = {
-    fish = "fish";
-    nvim = "nvim";
-    git = "git";
-    stylua = "stylua";
+    fish = { subpath = "fish"; recursive = true; };
+    nvim = { subpath = "nvim"; recursive = true; };
+    git = { subpath = "git"; recursive = true; };
+    stylua = { subpath = "stylua"; recursive = true; };
+    "tmux/tmux.conf" = { subpath = "tmux/tmux.conf"; recursive = false; };
 
   };
 
@@ -27,10 +28,12 @@ in
     "$HOME/.local/bin"
   ];
 
-  xdg.configFile = builtins.mapAttrs (name: subpath: {
-    source = create_symlink "${dotfiles}/${subpath}";
-    recursive = true;
-  }) configs;
+  xdg.configFile = builtins.mapAttrs
+    (name: cfg: {
+      source = createSymlink "${dotfiles}/${cfg.subpath}";
+      recursive = cfg.recursive;
+    })
+    configs;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
