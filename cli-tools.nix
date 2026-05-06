@@ -10,5 +10,6 @@
     hyperfine
     lazygit
     eza
+    tmux
   ];
 }
