@@ -5,9 +5,7 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ pkgs
-, ...
-}:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -16,6 +14,8 @@
 
   wsl.enable = true;
   wsl.defaultUser = "nixos";
+
+  nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [
     "nix-command"
