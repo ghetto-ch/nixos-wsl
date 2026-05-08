@@ -12,6 +12,7 @@
     {
 
       nixpkgs.config.allowUnfree = true;
+      home.enableNixpkgsReleaseCheck = false;
 
       nixosConfigurations = {
         nixos-wsl = nixpkgs.lib.nixosSystem {
