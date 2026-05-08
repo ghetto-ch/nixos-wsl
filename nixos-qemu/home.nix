@@ -16,10 +16,9 @@ in
 
 {
   imports = [
-    ./cli-tools.nix
-    ./nvim-tools.nix
-    ./ai-tools.nix
-    ./desktop.nix
+    ../cli-tools.nix
+    ../nvim-tools.nix
+    ../ai-tools.nix
 
   ];
   # Home Manager needs a bit of information about you and the

@@ -18,7 +18,7 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/nixos-wsl/configuration.nix
+            ./nixos-wsl/configuration.nix
             nixos-wsl.nixosModules.default
             {
               system.stateVersion = "25.11";
@@ -29,7 +29,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.nixos = ./home.nix;
+              home-manager.users.nixos = ./nixos-wsl/home.nix;
             }
           ];
         };
@@ -38,7 +38,7 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/nixos-qemu/configuration.nix
+            ./nixos-qemu/configuration.nix
             nixos-wsl.nixosModules.default
             {
               system.stateVersion = "25.11";
@@ -49,7 +49,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.nixos = ./home.nix;
+              home-manager.users.nixos = ./nixos-qemu/home.nix;
             }
           ];
         };
@@ -58,7 +58,7 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/gondolin/configuration.nix
+            ./gondolin/configuration.nix
             nixos-wsl.nixosModules.default
             {
               system.stateVersion = "25.11";
@@ -69,7 +69,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.nixos = ./home.nix;
+              home-manager.users.nixos = ./gondolin/home.nix;
             }
           ];
         };
