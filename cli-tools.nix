@@ -11,6 +11,9 @@
     lazygit
     eza
     tmux
+    gdu
+    dysk
+    btop
   ];
 
   programs.nh = {
