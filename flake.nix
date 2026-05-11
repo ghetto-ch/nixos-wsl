@@ -40,17 +40,12 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./nixos-qemu/configuration.nix
-            nixos-wsl.nixosModules.default
-            {
-              system.stateVersion = "25.11";
-              wsl.enable = true;
-            }
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.nixos = ./nixos-qemu/home.nix;
+              home-manager.users.ghetto = ./nixos-qemu/home.nix;
             }
           ];
         };
@@ -60,17 +55,12 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./gondolin/configuration.nix
-            nixos-wsl.nixosModules.default
-            {
-              system.stateVersion = "25.11";
-              wsl.enable = true;
-            }
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.nixos = ./gondolin/home.nix;
+              home-manager.users.ghetto = ./gondolin/home.nix;
             }
           ];
         };

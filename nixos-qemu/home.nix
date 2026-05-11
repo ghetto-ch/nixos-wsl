@@ -9,6 +9,7 @@ let
     git = { subpath = "git"; recursive = true; };
     stylua = { subpath = "stylua"; recursive = true; };
     "tmux/tmux.conf" = { subpath = "tmux/tmux.conf"; recursive = false; };
+    niri = { subpath = "niri"; recursive = true; };
 
   };
 
@@ -23,8 +24,8 @@ in
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "nixos";
-  home.homeDirectory = "/home/nixos";
+  home.username = builtins.getEnv "USER";
+  home.homeDirectory = builtins.getEnv "HOME";
 
   home.sessionPath = [
     "$HOME/.local/bin"
